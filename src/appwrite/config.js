@@ -62,13 +62,20 @@ export class Service{
             return false
         }
     }
+    async deletePost(slug, {title, content, featuredImage, status}){
+        try {
+            await this.databases.deleteDocument(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                slug,
+            )
+            return true
+        } catch (error) {
+            console.log("Appwrite service :: deletePost() ::", error)
+            return false
+        }
+    }
 }
 
-const client = new Client()
 
-const databases = new Databases(client);
-
-client
-    .setEndpoint('https://cloud.appwrite.io/v1')
-    .setProject('66e59776000ad65b941c');
 
