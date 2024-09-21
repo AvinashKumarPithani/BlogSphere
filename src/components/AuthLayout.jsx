@@ -1,6 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+
 
 function Protected({children, authentication = true}) {
+
+  const authStatus = useSelector((state) => state.auth.status)
+
+  const  navigate = useNavigate()
+  const [loader, setLoader] = useState(true)
+
   return (
     <>
         {children}
