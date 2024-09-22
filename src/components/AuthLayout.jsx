@@ -19,7 +19,7 @@ function Protected({children, authentication = true}) {
     setLoader(false)
   }, [authStatus, authentication, navigate])
 
-  return Loader ? null : <>{Children}</>
+  return loader ? null : <>{Children}</>
 }
 
 export default Protected
