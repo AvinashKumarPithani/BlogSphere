@@ -10,7 +10,18 @@ function RTE({
         {
             label && <label className='inline-block mb-1 pl-1'>{label}</label>
         }
-        <Controller />
+        <Controller 
+        name={name || "content"}
+        control={control}
+        render={({field: {onChange}}) => (
+          <Editor 
+          initialValue={defaultValue} 
+          init={{
+            branding: false,
+          }}
+          />
+        )}
+        />
     </div>
   )
 }
