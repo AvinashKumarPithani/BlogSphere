@@ -16,7 +16,7 @@ function RTE({
         render={({field: {onChange}}) => (
           <Editor 
           initialValue={defaultValue} 
-          init={{
+          init={{ 
             branding: false,
           }}
           />
